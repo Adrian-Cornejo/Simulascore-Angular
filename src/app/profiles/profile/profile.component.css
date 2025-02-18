@@ -1,0 +1,55 @@
+ 
+  .profile-card {
+    background-color: #e2c4b6;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit:cover ;
+  }
+  
+  .profile-content {
+    padding: 16px;
+  }
+  
+  .profile-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1rem;
+    max-width: 30rem;
+    margin: auto;
+    margin-top: 3rem;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #e2c4b6;
+  }
+  
+  .profile-card-link {
+    text-decoration: none;
+    color: inherit; 
+  }
+  
+  .profile-card {
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Asegurarse de que la imagen no se salga de los bordes redondeados de la tarjeta al escalar */
+    margin: auto;
+  }
+  
+  .profile-card:hover {
+    transform: translateY(30px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  .profile-card:hover .profile-image {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen */
+    transition: transform 0.3s ease; /* Asegura una transición suave */
+  }
