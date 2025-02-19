@@ -1,0 +1,72 @@
+/* Header container */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e2c4b6; /* Fondo suave para el header */
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo and app name */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Ajusta el tamaño del logo */
+    height: auto;
+    margin-right: 1rem;
+}
+
+.app-name {
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    color: #595d6f;
+}
+
+/* Social media icons */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    font-size: 2rem; /* Tamaño de los íconos */
+    color: #595d6f;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Efecto de agrandar al pasar el cursor */
+    filter: brightness(1.2); /* Aumenta el brillo al pasar el cursor */
+}
+
+.social-icon i {
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover i {
+    color: #687483; /* Cambio de color al pasar el ratón */
+}
+
+/* FAQ Button */
+.faq-button {
+    text-align: right;
+}
+
+.faq-link {
+    background-color: #687483;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.faq-link:hover {
+    background-color: #5a6770;
+}
+
