@@ -2,22 +2,22 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from "../../header/header.component";
-import { AuthService } from '../../services/auth.service';
+import { HeaderComponent } from "../header/header.component";
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
-  selector: 'app-login-alumno',
+  selector: 'app-login',
   imports: [ReactiveFormsModule, CommonModule, HeaderComponent],
-  templateUrl: './login-alumno.component.html',
-  styleUrl: './login-alumno.component.css'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class LoginAlumnoComponent {
+export class LoginComponent implements OnInit{
   loginForm!: FormGroup;
   hidePassword = true;
 constructor(
   private fb: FormBuilder,
   private authService: AuthService,
-
 ){
 
 }

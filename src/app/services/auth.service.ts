@@ -3,6 +3,8 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { LoginCredentials } from '../models/login-credentials.model';
+import { AuthResponse } from '../models/auth-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,13 +14,10 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  // Método para realizar el login
-  login(credentials: { correo: string; password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}login`, credentials).pipe(
+  login(credentials: LoginCredentials): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}login`, credentials).pipe(
       tap((response) => {
-        // Guardar el token y los datos del usuario en localStorage
         this.saveAuthData(response);
-        // Redireccionar según el rol
         this.redirectBasedOnRole(response.role);
       })
     );

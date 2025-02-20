@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 import { ProfilesComponent } from './profiles/profiles.component';
-import { LoginDirectivoComponent } from './directivo/login-directivo/login-directivo.component';
-import { LoginAlumnoComponent } from './alumno/login-alumno/login-alumno.component';
-import { LoginMaestroComponent } from './maestro/login-maestro/login-maestro.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardDirectivoComponent } from './directivo/dashboard-directivo/dashboard-directivo.component';
+import { DashboardAlumnoComponent } from './alumno/dashboard-alumno/dashboard-alumno.component';
+import { DashboardMaestroComponent } from './maestro/dashboard-maestro/dashboard-maestro.component';
 
 export const routes: Routes = [
     {
@@ -10,16 +11,20 @@ export const routes: Routes = [
         component: ProfilesComponent,
     },
     {
+        path : 'login',
+        component: LoginComponent
+    },
+    {
         path:'directivo',
-        component:LoginDirectivoComponent,
-        title: 'Login-Directivo'
+        component:DashboardDirectivoComponent,
+        title: 'Directivo'
     },
     {
         path: 'alumno',
-        component: LoginAlumnoComponent,
+        component: DashboardAlumnoComponent ,
     },
     {
         path :'maestro',
-        component: LoginMaestroComponent,
+        component: DashboardMaestroComponent,
     }
 ];
