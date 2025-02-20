@@ -25,6 +25,11 @@ constructor(
 }
 
 ngOnInit(): void {
+  const token = this.authService.getToken();
+    const role = this.authService.getRole();
+    if(token && role){
+      this.authService.redirectBasedOnRole(role);
+    }
   this.loginForm = this.fb.group({
     correo: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
