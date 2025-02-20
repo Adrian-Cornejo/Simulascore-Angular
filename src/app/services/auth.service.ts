@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   // Método para redireccionar según el rol
-  private redirectBasedOnRole(role: string): void {
+  redirectBasedOnRole(role: string): void {
     switch (role) {
       case 'Alumno':
         this.router.navigate(['/alumno']);
