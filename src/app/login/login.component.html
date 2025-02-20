@@ -44,7 +44,12 @@
                     }
                 </div>
             }
-            <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+            @if (errorMessage) {
+                <div class="error-message">
+                    {{ errorMessage }}
+                </div>
+            }
+            <button type="submit" [disabled]="loginForm.invalid || isLoading">Iniciar Sesión</button>
 
             <!-- Enlaces de ayuda -->
             <div class="help-links">

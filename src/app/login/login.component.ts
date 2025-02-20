@@ -14,7 +14,9 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit{
   loginForm!: FormGroup;
+  errorMessage : String = '';
   hidePassword = true;
+  isLoading: boolean = false;
 constructor(
   private fb: FormBuilder,
   private authService: AuthService,
@@ -31,13 +33,25 @@ ngOnInit(): void {
 
 onSubmit(): void {
   if (this.loginForm.valid) {
+    this.errorMessage = '';
+    this.isLoading = true;
     this.authService.login(this.loginForm.value).subscribe({
       next : (response)=>{
         console.log("Login Exitoso", response);
+        this.isLoading = false;
       },
-      error :(error)=>{
-        console.log("Error", error);
-      }
+      error: (error) => {
+        if (error.status === 401) {
+          this.errorMessage = 'Credenciales inválidas. Inténtalo de nuevo.';
+        } else if (error.status === 500) {
+          this.errorMessage = 'Error en el servidor. Inténtalo más tarde.';
+        } else if (error.status === 0) {
+          this.errorMessage = 'No se pudo conectar al servidor. Verifica tu conexión a Internet.';
+        } else {
+          this.errorMessage = 'Ocurrió un error inesperado. Inténtalo más tarde.';
+        }
+        this.isLoading = false;
+      },
     })
   }
 }

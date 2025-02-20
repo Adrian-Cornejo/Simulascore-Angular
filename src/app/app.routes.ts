@@ -3,12 +3,14 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardDirectivoComponent } from './directivo/dashboard-directivo/dashboard-directivo.component';
 import { DashboardAlumnoComponent } from './alumno/dashboard-alumno/dashboard-alumno.component';
-import { DashboardMaestroComponent } from './maestro/dashboard-maestro/dashboard-maestro.component';
+import { DashboardProfesorComponent } from './profesor/dashboard-profesor/dashboard-profesor.component';
+import { RoleGuard } from './guards/role.guard';
 
 export const routes: Routes = [
     {
         path :'',
         component: ProfilesComponent,
+        pathMatch: 'full'
     },
     {
         path : 'login',
@@ -17,14 +19,20 @@ export const routes: Routes = [
     {
         path:'directivo',
         component:DashboardDirectivoComponent,
-        title: 'Directivo'
+        title: 'Directivo',
+        canActivate: [RoleGuard],
+        data: { expectedRole: 'Directivo' },
     },
     {
         path: 'alumno',
         component: DashboardAlumnoComponent ,
+        canActivate: [RoleGuard],
+        data: { expectedRole: 'Alumno' },
     },
     {
-        path :'maestro',
-        component: DashboardMaestroComponent,
+        path :'profesor',
+        component: DashboardProfesorComponent,
+        canActivate: [RoleGuard],
+        data: { expectedRole: 'profesor' },
     }
 ];
