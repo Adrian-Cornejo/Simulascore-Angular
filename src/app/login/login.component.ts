@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from "../header/header.component";
 import { AuthService } from '../services/auth.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, CommonModule, HeaderComponent],
+  imports: [ReactiveFormsModule, CommonModule, HeaderComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -40,6 +41,7 @@ onSubmit(): void {
   if (this.loginForm.valid) {
     this.errorMessage = '';
     this.isLoading = true;
+    console.log(this.loginForm.value);
     this.authService.login(this.loginForm.value).subscribe({
       next : (response)=>{
         console.log("Login Exitoso", response);
@@ -62,7 +64,6 @@ onSubmit(): void {
 }
 togglePasswordVisibility(){
   this.hidePassword = !this.hidePassword;
-  console.log('hola')
 }
 
 }

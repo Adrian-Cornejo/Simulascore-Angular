@@ -5,6 +5,7 @@ import { DashboardDirectivoComponent } from './directivo/dashboard-directivo/das
 import { DashboardAlumnoComponent } from './alumno/dashboard-alumno/dashboard-alumno.component';
 import { DashboardProfesorComponent } from './profesor/dashboard-profesor/dashboard-profesor.component';
 import { RoleGuard } from './guards/role.guard';
+import { CreateAcountComponent } from './login/create-acount/create-acount.component';
 
 export const routes: Routes = [
     {
@@ -15,6 +16,10 @@ export const routes: Routes = [
     {
         path : 'login',
         component: LoginComponent
+    },
+    {
+        path : 'singup',
+        component : CreateAcountComponent,
     },
     {
         path:'directivo',

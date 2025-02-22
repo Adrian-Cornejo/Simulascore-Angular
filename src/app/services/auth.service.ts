@@ -4,8 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { LoginCredentials } from '../models/login-credentials.model';
-import { AuthResponse } from '../models/auth-response.model';
+import { LoginCredentials } from '../models/request/login-credentials-request.model';
+import { AuthResponse } from '../models/response/auth-response.model';
+import { SingupResponseAlumno } from '../models/response/singup-response-alumno.model';
+import { RegistroAlumnoRequest } from '../models/request/registro-alumno-request.model';
+import { RegistroProfesorRequest } from '../models/request/registro-profesor-request.model';
+import { SingupResponseProfesor } from '../models/response/singup-response-profesor.model';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +33,22 @@ export class AuthService {
       })
     );
   }
+
+  singupAlumno(registroAlumno : RegistroAlumnoRequest): Observable<SingupResponseAlumno>{
+    return this.http.post<SingupResponseAlumno>(`${this.apiUrl}api/alumnos/registro`,registroAlumno).pipe(
+      tap((response) =>{
+        this.router.navigate(['/login']);
+      })
+    )
+  }
+  singupProfesor(registroProfesor : RegistroProfesorRequest) :Observable <SingupResponseProfesor>{
+    return this.http.post<SingupResponseProfesor>(`${this.apiUrl}api/profesores/registro`, registroProfesor).pipe(
+      tap((response)=>{
+        this.router.navigate(['/login']);
+      })
+    )
+  }
+
 
   // Método para guardar el token y los datos del usuario en localStorage
   private saveAuthData(response: any): void {
