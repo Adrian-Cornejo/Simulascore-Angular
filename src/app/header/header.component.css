@@ -12,7 +12,9 @@
 .logo-container {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
+
 
 .logo {
     width: 50px; /* Ajusta el tamaño del logo */
@@ -51,22 +53,4 @@
     color: #687483; /* Cambio de color al pasar el ratón */
 }
 
-/* FAQ Button */
-.faq-button {
-    text-align: right;
-}
-
-.faq-link {
-    background-color: #687483;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-}
-
-.faq-link:hover {
-    background-color: #5a6770;
-}
 

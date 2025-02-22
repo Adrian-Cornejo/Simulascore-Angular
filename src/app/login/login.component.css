@@ -62,6 +62,9 @@
   button:hover {
     background-color: #5a6770;
   }
+  button:disabled {
+    cursor: not-allowed;
+  }
   
   /* Ajustes del logo */
   .logo {

@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="contenedor__crearCuenta">
+  <div class="login-container">
+    <h1 class="title">Crear cuenta</h1>
+    <img src="logo.png" alt="Logo de la Aplicación" class="logo">
+
+    <!-- Selección de rol -->
+    <div class="role-selector">
+      <label for="help-links">Selecciona el tipo de registro</label>
+      <select id="role-select" [(ngModel)]="selectedRole" class="role-select">
+        <option value="alumno">Alumno</option>
+        <option value="maestro">Maestro</option>
+      </select>
+    </div>
+
+    @if (selectedRole === 'alumno') {
+      <!-- Formulario de Alumno -->
+      <form [formGroup]="alumnoForm" (ngSubmit)="onSubmitAlumno()" class="formulario">
+        <h3 class="title">Registro de Alumno</h3>
+
+        <div class="campo-doble">
+          <input type="text" formControlName="first_name" placeholder="Nombre(s)">
+          <input type="text" formControlName="last_name" placeholder="Apellido(s)">
+        </div>
+
+        <input type="email" formControlName="email" placeholder="Correo electrónico">
+
+        <div class="campo-doble">
+          <input type="password" formControlName="password" placeholder="Contraseña">
+          <input type="password" formControlName="confirm_password" placeholder="Confirmar contraseña">
+        </div>
+
+        <input type="text" formControlName="codigo_maestro" placeholder="Código del Maestro">
+
+        @if (alumnoForm.errors?.['passwordMismatch']) {
+          <div class="error">Las contraseñas no coinciden</div>
+        }
+        @if (errorMessage) {
+          <div class="error-message">{{ errorMessage }}</div>
+        }
+
+        <button type="submit" [disabled]="alumnoForm.invalid">Registrarse como Alumno</button>
+      </form>
+    }
+
+    @if (selectedRole === 'maestro') {
+      <!-- Formulario de Maestro -->
+      <form [formGroup]="maestroForm" (ngSubmit)="onSubmitMaestro()" class="formulario">
+        <h3 class="title">Registro de Maestro</h3>
+
+        <div class="campo-doble">
+          <input type="text" formControlName="first_name" placeholder="Nombre(s)">
+          <input type="text" formControlName="last_name" placeholder="Apellido(s)">
+        </div>
+
+        <input type="email" formControlName="email" placeholder="Correo electrónico">
+
+        <div class="campo-doble">
+          <input type="password" formControlName="password" placeholder="Contraseña">
+          <input type="password" formControlName="confirm_password" placeholder="Confirmar contraseña">
+        </div>
+
+        <input type="text" formControlName="codigo_directivo" placeholder="Código del Directivo">
+
+        @if (maestroForm.errors?.['passwordMismatch']) {
+          <div class="error">Las contraseñas no coinciden</div>
+        }
+
+        <button type="submit" [disabled]="maestroForm.invalid">Registrarse como Maestro</button>
+      </form>
+    }
+
+    <div class="help-links">
+      <a routerLink="/login">¿Ya tienes una cuenta? Inicia sesión</a>
+    </div>
+  </div>
+</div>

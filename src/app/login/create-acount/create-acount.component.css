@@ -1,0 +1,144 @@
+
+.logo {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+}
+.role-selector {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.role-select {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+
+.login-container {
+  background-color: #e2c4b6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 6rem;
+
+}
+
+input[type=text], input[type=password], input[type=email] {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #595d6f;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #fbeadf;
+}
+
+button {
+  width: 50%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #687483;
+  font-family: "Staatliches", cursive;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5a6770;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.contenedor__crearCuenta {
+  margin:  auto;
+  width: 60rem;
+}
+.contenedor__crearCuenta .login-container {
+  background-color: #e2c4b6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.help-links a {
+  color: #687483;
+  text-decoration: none;
+}
+
+.help-links a:hover {
+  text-decoration: underline;
+}
+
+.box-eye {
+  position: relative;
+}
+
+.box-eye button {
+  border: none;
+  position: absolute;
+  
+}
+
+.campo-doble {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  margin: auto;
+  /* Asegura que los elementos se distribuyan */
+  gap: 10px;
+  /* Espacio entre los campos de texto */
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.role-selector {
+  text-align: center;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.role-selector label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.role-select {
+  width: 220px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #595d6f;
+  border-radius: 4px;
+  margin-top: 5px;
+  background-color: #fbeadf;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.role-select:hover,
+.role-select:focus {
+  border-color: #687483;
+}
+
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
