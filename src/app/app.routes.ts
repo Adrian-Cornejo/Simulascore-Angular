@@ -6,6 +6,8 @@ import { DashboardAlumnoComponent } from './alumno/dashboard-alumno/dashboard-al
 import { DashboardProfesorComponent } from './profesor/dashboard-profesor/dashboard-profesor.component';
 import { RoleGuard } from './guards/role.guard';
 import { CreateAcountComponent } from './login/create-acount/create-acount.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NewPasswordComponent } from './reset-password/new-password/new-password.component';
 
 export const routes: Routes = [
     {
@@ -21,6 +23,13 @@ export const routes: Routes = [
         path : 'singup',
         component : CreateAcountComponent,
     },
+    {
+        path: 'reset-password',
+        component: ResetPasswordComponent,
+    },
+    { 
+        path: 'new-password',
+        component: NewPasswordComponent },
     {
         path:'directivo',
         component:DashboardDirectivoComponent,
