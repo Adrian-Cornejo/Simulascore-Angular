@@ -11,6 +11,9 @@ import { RegistroAlumnoRequest } from '../models/request/registro-alumno-request
 import { RegistroProfesorRequest } from '../models/request/registro-profesor-request.model';
 import { SingupResponseProfesor } from '../models/response/singup-response-profesor.model';
 import { response } from 'express';
+import { resetPaswordRequest } from '../models/request/reset-password-request.model';
+import { ResetPasswordResponse } from '../models/response/reset-password-response.model';
+import { NewPasswordRequest } from '../models/request/new-password-request.model';
 
 @Injectable({
   providedIn: 'root',
@@ -48,6 +51,20 @@ export class AuthService {
       })
     )
   }
+
+  requestPaswordReset(resetPassword : resetPaswordRequest): Observable<ResetPasswordResponse>{
+    return this.http.post<ResetPasswordResponse>(`${this.apiUrl}api/password/reset-request`,resetPassword).pipe(
+      tap((response) =>{
+      })
+    )
+  }
+  resetPassword(newPassword : NewPasswordRequest): Observable<ResetPasswordResponse> {
+    return this.http.post<ResetPasswordResponse>(`${this.apiUrl}api/password/reset`, newPassword).pipe(
+      tap((response) =>{
+      })
+    );
+  }
+
 
 
   // Método para guardar el token y los datos del usuario en localStorage
